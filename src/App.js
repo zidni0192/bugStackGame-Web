@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Provider } from 'react-redux'
+import store from './publics/redux/store'
+import {Route,BrowserRouter as Router,Switch} from 'react-router-dom'
+import Home from './screens/home';
+import SettingPattern from './screens/settingPattern';
+import SettingSound from './screens/settingSound';
+import Leaderboard from './screens/leaderboard';
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <Route path='/' exact render={()=><Home />} />
+          <Route path='/settingPattern' exact render={()=><SettingPattern />}/>
+          <Route path='/settingSound' exact render={()=><SettingSound />}/>
+          <Route path='/leaderboard' exact render={()=><Leaderboard />}/>
+        </Router>
+      </Provider>
+    )
+  }
 }
 
 export default App;
