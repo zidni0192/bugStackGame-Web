@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 class settingSound extends Component {
+
     render() {
         return (
             <div>
-                settingSound
             </div>
         )
     }

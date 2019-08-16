@@ -26,6 +26,26 @@ const book = (state = intialState, action) => {
                 isFulfilled: true,
                 patternList: action.payload.data
             }
+        case 'PATCH_PATTERN_PENDING':
+            return {
+                ...state,
+                isLoading: true,
+                isRejected: false,
+                isFulfilled: false
+            }
+        case 'PATCH_PATTERN_REJECTED':
+            return {
+                ...state,
+                isLoading: false,
+                isRejected: true,
+            }
+        case 'PATCH_PATTERN_FULFILLED':
+            return {
+                ...state,
+                isLoading: false,
+                isFulfilled: true,
+                patternList: action.payload.data
+            }
         default:
             return state
     }

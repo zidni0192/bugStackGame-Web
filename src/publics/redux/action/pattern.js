@@ -7,3 +7,10 @@ export const getPattern= ()=>{
         payload:axios.get(`${host}/pattern`)
     }
 }
+
+export const patchPattern= (data)=>{
+    return{
+        type:'PATCH_PATTERN',
+        payload:axios.patch(`${host}/pattern/${data.idPattern}`,data)
+    }
+}
